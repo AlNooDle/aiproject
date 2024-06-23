@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 분류 결과</title>
+</head>
+<body>
+    <h1>이미지 분류 결과</h1>
+
+    {% if prediction %}
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        </div>
+
+        <p>예측된 클래스: {{ prediction }}</p>
+        <p>확률: {{ probability }}</p>
+    {% else %}
+        <p>{{ msg }}</p>
+    {% endif %}
+</body>
+</html>
